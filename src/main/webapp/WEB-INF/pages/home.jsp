@@ -21,7 +21,7 @@
 	
 	<a href='${ pageContext.request.contextPath }/payments'><strong>payments list</strong></a><br>
 	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
+	<a href='${ pageContext.request.contextPath }/productlines'><strong>productlines list</strong></a><br>
 	
 	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
 	

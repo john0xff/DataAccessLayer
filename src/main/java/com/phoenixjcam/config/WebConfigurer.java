@@ -50,7 +50,9 @@ public class WebConfigurer extends WebMvcConfigurerAdapter
 		builder.scanPackages("com.phoenixjcam.data.orders.model").addProperties(getHibernateProperties());
 		// payments table
 		builder.scanPackages("com.phoenixjcam.data.payments.model").addProperties(getHibernateProperties());
-
+		// productlines table
+		builder.scanPackages("com.phoenixjcam.data.productlines.model").addProperties(getHibernateProperties());
+		
 		return builder.buildSessionFactory();
 	}
 

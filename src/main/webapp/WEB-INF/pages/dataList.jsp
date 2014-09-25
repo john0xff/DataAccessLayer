@@ -70,5 +70,15 @@
 		</c:forEach>
 	</c:if>
 	
+	<!-- 7 productlines list -->
+	<c:if test="${not empty productLinesList}">
+		<h3>Product Lines list:</h3>
+		<h4>productLine    |   	textDescription</h4>
+		<c:forEach items="${productLinesList}" var="item">
+			${item.productLine} ->
+    		${item.textDescription}<br><br>
+		</c:forEach>
+	</c:if>
+	
 </body>
 </html>

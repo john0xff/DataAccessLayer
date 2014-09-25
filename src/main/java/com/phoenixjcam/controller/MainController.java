@@ -20,6 +20,8 @@ import com.phoenixjcam.data.orders.model.OrdersModel;
 import com.phoenixjcam.data.orders.service.OrdersService;
 import com.phoenixjcam.data.payments.model.PaymentsModel;
 import com.phoenixjcam.data.payments.service.PaymentsService;
+import com.phoenixjcam.data.productlines.model.ProductLinesModel;
+import com.phoenixjcam.data.productlines.service.ProductLinesService;
 
 @Controller
 public class MainController
@@ -47,6 +49,10 @@ public class MainController
 	// payments table
 	@Autowired
 	private PaymentsService paymentsService;
+
+	// productlines table
+	@Autowired
+	private ProductLinesService productLinesService;
 
 	@RequestMapping(value =
 	{ "/", "/home" }, method = RequestMethod.GET)
@@ -141,6 +147,16 @@ public class MainController
 	}
 
 	// productlines
+	@RequestMapping(value = "productlines", method = RequestMethod.GET)
+	public ModelAndView getProductLines()
+	{
+		List<ProductLinesModel> productLinesList = productLinesService.getProductLines();
+
+		ModelAndView modelAndView = new ModelAndView("dataList");
+		modelAndView.addObject("productLinesList", productLinesList);
+
+		return modelAndView;
+	}
 
 	// products
 
