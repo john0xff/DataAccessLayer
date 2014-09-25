@@ -1,4 +1,4 @@
-package com.phoenixjcam.data.offices.dao;
+package com.phoenixjcam.data.orders.dao;
 
 import java.util.List;
 
@@ -7,11 +7,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.phoenixjcam.data.offices.model.OfficesModel;
+import com.phoenixjcam.data.orders.model.OrdersModel;
 import com.phoenixjcam.data.utils.DataUtilities;
 
 @Repository
-public class OfficesDAOImpl implements OfficesDAO
+public class OrdersDAOImpl implements OrdersDAO
 {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -22,12 +22,11 @@ public class OfficesDAOImpl implements OfficesDAO
 	}
 
 	@Override
-	public List<OfficesModel> getOffices()
+	public List<OrdersModel> getOrders()
 	{
-		// TODO Auto-generated method stub getCurrentSession().createQuery("from CustomersModel").list()
-		List<OfficesModel> officesList = DataUtilities.castList(OfficesModel.class, getCurrentSession().createQuery("from OfficesModel").list());
+		List<OrdersModel> ordersList = DataUtilities.castList(OrdersModel.class, getCurrentSession().createQuery("from OrdersModel").list());
 
-		return officesList;
+		return ordersList;
 	}
 
 }

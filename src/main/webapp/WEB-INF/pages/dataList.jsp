@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<!-- customers list -->
+	<!-- 1 customers list -->
 	<c:if test="${not empty customersList}">
 		<h3>Customers list:</h3>
 		<h4>ID    |   Name</h4>
@@ -20,7 +20,7 @@
 		</c:forEach>
 	</c:if>
 	
-	<!-- employees list -->
+	<!-- 2 employees list -->
 	<c:if test="${not empty employeesList}">
 		<h3>Employees list:</h3>
 		<h4>ID    |   Name</h4>
@@ -30,7 +30,7 @@
 		</c:forEach>
 	</c:if>
 	
-	<!-- offices list -->
+	<!-- 3 offices list -->
 	<c:if test="${not empty officesList}">
 		<h3>Offices list:</h3>
 		<h4>Code    |   City</h4>
@@ -39,6 +39,26 @@
     		${item.city}<br>
 		</c:forEach>
 	</c:if>
-
+	
+	<!-- 4 orderdetails  list -->
+	<c:if test="${not empty orderDetailsList}">
+		<h3>Order Details list:</h3>
+		<h4>Code    |   City</h4>
+		<c:forEach items="${orderDetailsList}" var="item">
+			${item.orderNumber} ->
+    		${item.productCode}<br>
+		</c:forEach>
+	</c:if>
+	
+	<!-- 5 orderdetails  list -->
+	<c:if test="${not empty ordersList}">
+		<h3>Orders list:</h3>
+		<h4>Code    |   City</h4>
+		<c:forEach items="${ordersList}" var="item">
+			${item.orderNumber} ->
+    		${item.orderDate}<br>
+		</c:forEach>
+	</c:if>
+	
 </body>
 </html>

@@ -12,7 +12,6 @@ import com.phoenixjcam.data.products.model.ProductsModel;
 @Repository
 public class ProductsDAOImpl implements ProductsDAO
 {
-
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -21,7 +20,6 @@ public class ProductsDAOImpl implements ProductsDAO
 		return sessionFactory.getCurrentSession();
 	}
 
-	
 	@Override
 	public List<ProductsModel> getProducts()
 	{

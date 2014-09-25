@@ -15,9 +15,9 @@
 	
 	<a href='${ pageContext.request.contextPath }/offices'><strong>offices list</strong></a><br>
 	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
+	<a href='${ pageContext.request.contextPath }/orderdetails'><strong>orderdetails list</strong></a><br>
 	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
+	<a href='${ pageContext.request.contextPath }/orders'><strong>orders list</strong></a><br>
 	
 	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
 	

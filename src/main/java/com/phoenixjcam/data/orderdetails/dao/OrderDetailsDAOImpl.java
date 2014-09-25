@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.phoenixjcam.data.orderdetails.model.OrderDetailsModel;
+import com.phoenixjcam.data.utils.DataUtilities;
 
 @Repository
 public class OrderDetailsDAOImpl implements OrderDetailsDAO
@@ -22,11 +23,9 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO
 
 	@Override
 	public List<OrderDetailsModel> getOrderDetails()
-	{
-		@SuppressWarnings("unchecked")
-		List<OrderDetailsModel> list = getCurrentSession().createQuery("from OrderDetailsModel").list();
+	{	
+		List<OrderDetailsModel> orderDetailsList = DataUtilities.castList(OrderDetailsModel.class, getCurrentSession().createQuery("from OrderDetailsModel").list());
 
-		return list;
+		return orderDetailsList;
 	}
-
 }

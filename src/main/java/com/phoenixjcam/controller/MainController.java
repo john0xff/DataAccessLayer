@@ -14,20 +14,33 @@ import com.phoenixjcam.data.employees.model.EmployeesModel;
 import com.phoenixjcam.data.employees.service.EmployeesService;
 import com.phoenixjcam.data.offices.model.OfficesModel;
 import com.phoenixjcam.data.offices.service.OfficesService;
+import com.phoenixjcam.data.orderdetails.model.OrderDetailsModel;
+import com.phoenixjcam.data.orderdetails.service.OrderDetailsService;
+import com.phoenixjcam.data.orders.model.OrdersModel;
+import com.phoenixjcam.data.orders.service.OrdersService;
 
 @Controller
 public class MainController
 {
 	// customers table
 	@Autowired
-	CustomersService customerService;
-	
+	private CustomersService customerService;
+
 	// employees table
 	@Autowired
-	EmployeesService employeesService;
-	
+	private EmployeesService employeesService;
+
+	// offices table
 	@Autowired
-	OfficesService officesService;
+	private OfficesService officesService;
+
+	// orderdetails table
+	@Autowired
+	private OrderDetailsService orderDetailsService;
+	
+	// orders table
+	@Autowired
+	private OrdersService ordersService;
 
 	@RequestMapping(value =
 	{ "/", "/home" }, method = RequestMethod.GET)
@@ -64,7 +77,7 @@ public class MainController
 	public ModelAndView getEmployees()
 	{
 		// TODO from index to index -> select form db some data but don't get it all like now.
-		// It's not efficient and nobody will need million rows 
+		// It's not efficient and nobody will need million rows
 		List<EmployeesModel> employeesList = employeesService.getEmployees();
 
 		ModelAndView modelAndView = new ModelAndView("dataList");
@@ -86,8 +99,28 @@ public class MainController
 	}
 
 	// orderdetails
+	@RequestMapping(value = "orderdetails", method = RequestMethod.GET)
+	public ModelAndView getOrderDetails()
+	{
+		List<OrderDetailsModel> orderDetailsList = orderDetailsService.getOrderDetails();
+
+		ModelAndView modelAndView = new ModelAndView("dataList");
+		modelAndView.addObject("orderDetailsList", orderDetailsList);
+
+		return modelAndView;
+	}
 
 	// orders
+	@RequestMapping(value = "orders", method = RequestMethod.GET)
+	public ModelAndView getOrders()
+	{
+		List<OrdersModel> ordersList = ordersService.getOrders();
+
+		ModelAndView modelAndView = new ModelAndView("dataList");
+		modelAndView.addObject("ordersList", ordersList);
+
+		return modelAndView;
+	}
 
 	// payments
 
