@@ -36,8 +36,6 @@ public class WebConfigurer extends WebMvcConfigurerAdapter
 	{
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
 
-		builder.scanPackages("com.phoenixjcam.data.products.model").addProperties(getHibernateProperties());
-
 		// customers table
 		builder.scanPackages("com.phoenixjcam.data.customers.model").addProperties(getHibernateProperties());
 		// employees table
@@ -52,7 +50,11 @@ public class WebConfigurer extends WebMvcConfigurerAdapter
 		builder.scanPackages("com.phoenixjcam.data.payments.model").addProperties(getHibernateProperties());
 		// productlines table
 		builder.scanPackages("com.phoenixjcam.data.productlines.model").addProperties(getHibernateProperties());
-		
+		// proucts table
+		builder.scanPackages("com.phoenixjcam.data.products.model").addProperties(getHibernateProperties());
+		// users and user_roles tables
+		builder.scanPackages("com.phoenixjcam.login.users.model").addProperties(getHibernateProperties());
+
 		return builder.buildSessionFactory();
 	}
 

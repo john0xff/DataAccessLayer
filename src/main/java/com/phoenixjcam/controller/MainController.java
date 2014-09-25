@@ -22,6 +22,8 @@ import com.phoenixjcam.data.payments.model.PaymentsModel;
 import com.phoenixjcam.data.payments.service.PaymentsService;
 import com.phoenixjcam.data.productlines.model.ProductLinesModel;
 import com.phoenixjcam.data.productlines.service.ProductLinesService;
+import com.phoenixjcam.data.products.model.ProductsModel;
+import com.phoenixjcam.data.products.service.ProductsService;
 
 @Controller
 public class MainController
@@ -53,6 +55,13 @@ public class MainController
 	// productlines table
 	@Autowired
 	private ProductLinesService productLinesService;
+
+	// products table
+	@Autowired
+	private ProductsService productsService;
+
+	// @Autowired
+	// private UserRoleService userRoleService;
 
 	@RequestMapping(value =
 	{ "/", "/home" }, method = RequestMethod.GET)
@@ -159,8 +168,26 @@ public class MainController
 	}
 
 	// products
+	@RequestMapping(value = "products", method = RequestMethod.GET)
+	public ModelAndView getProducts()
+	{
+		List<ProductsModel> productsList = productsService.getProducts();
 
-	// users
+		ModelAndView modelAndView = new ModelAndView("dataList");
+		modelAndView.addObject("productsList", productsList);
 
-	// user_roles
+		return modelAndView;
+	}
+
+	// // users
+	// @RequestMapping(value = "users", method = RequestMethod.GET)
+	// public ModelAndView getUsers()
+	// {
+	// List<UserRoleModel> usersList = userRoleService.getUsers();
+	//
+	// ModelAndView modelAndView = new ModelAndView("dataList");
+	// modelAndView.addObject("usersList", usersList);
+	//
+	// return modelAndView;
+	// }
 }

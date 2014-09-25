@@ -1,5 +1,7 @@
 package com.phoenixjcam.data.products.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,8 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products", catalog = "db_jv_crm")
-public class ProductsModel
+public class ProductsModel implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "productCode", nullable = false, length = 15)
 	private String productCode;
@@ -25,6 +29,7 @@ public class ProductsModel
 	@Column(name = "productVendor", nullable = false, length = 50)
 	private String productVendor;
 
+	@Id
 	@Column(name = "productDescription", nullable = false)
 	private String productDescription;
 

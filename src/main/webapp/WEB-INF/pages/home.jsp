@@ -23,11 +23,7 @@
 	
 	<a href='${ pageContext.request.contextPath }/productlines'><strong>productlines list</strong></a><br>
 	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
-	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
-	
-	<a href='${ pageContext.request.contextPath }/test'><strong>test</strong></a><br>
+	<a href='${ pageContext.request.contextPath }/products'><strong>products list</strong></a><br>
 	
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.phoenixjcam.data.products.model.ProductsModel;
+import com.phoenixjcam.data.utils.DataUtilities;
 
 @Repository
 public class ProductsDAOImpl implements ProductsDAO
@@ -23,10 +24,9 @@ public class ProductsDAOImpl implements ProductsDAO
 	@Override
 	public List<ProductsModel> getProducts()
 	{
-		@SuppressWarnings("unchecked")
-		List<ProductsModel> list = getCurrentSession().createQuery("from ProductsModel").list();
+		List<ProductsModel> productsList = DataUtilities.castList(ProductsModel.class, getCurrentSession().createQuery("from ProductsModel").list());
 
-		return list;
+		return productsList;
 	}
 
 }

@@ -80,5 +80,15 @@
 		</c:forEach>
 	</c:if>
 	
+	<!-- 8 products list -->
+	<c:if test="${not empty productsList}">
+		<h3>Products list:</h3>
+		<h4>productCode    |   		productName</h4>
+		<c:forEach items="${productsList}" var="item">
+			${item.productCode} ->
+    		${item.productName}<br><br>
+		</c:forEach>
+	</c:if>
+	
 </body>
 </html>
