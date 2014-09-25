@@ -50,13 +50,23 @@
 		</c:forEach>
 	</c:if>
 	
-	<!-- 5 orderdetails  list -->
+	<!-- 5 orders  list -->
 	<c:if test="${not empty ordersList}">
 		<h3>Orders list:</h3>
 		<h4>Code    |   City</h4>
 		<c:forEach items="${ordersList}" var="item">
 			${item.orderNumber} ->
     		${item.orderDate}<br>
+		</c:forEach>
+	</c:if>
+	
+	<!-- 6 payments list -->
+	<c:if test="${not empty paymentsList}">
+		<h3>Payments list:</h3>
+		<h4>Date    |   Amount</h4>
+		<c:forEach items="${paymentsList}" var="item">
+			${item.paymentDate} ->
+    		${item.amount}<br>
 		</c:forEach>
 	</c:if>
 	

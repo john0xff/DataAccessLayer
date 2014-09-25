@@ -18,6 +18,8 @@ import com.phoenixjcam.data.orderdetails.model.OrderDetailsModel;
 import com.phoenixjcam.data.orderdetails.service.OrderDetailsService;
 import com.phoenixjcam.data.orders.model.OrdersModel;
 import com.phoenixjcam.data.orders.service.OrdersService;
+import com.phoenixjcam.data.payments.model.PaymentsModel;
+import com.phoenixjcam.data.payments.service.PaymentsService;
 
 @Controller
 public class MainController
@@ -37,10 +39,14 @@ public class MainController
 	// orderdetails table
 	@Autowired
 	private OrderDetailsService orderDetailsService;
-	
+
 	// orders table
 	@Autowired
 	private OrdersService ordersService;
+
+	// payments table
+	@Autowired
+	private PaymentsService paymentsService;
 
 	@RequestMapping(value =
 	{ "/", "/home" }, method = RequestMethod.GET)
@@ -123,6 +129,16 @@ public class MainController
 	}
 
 	// payments
+	@RequestMapping(value = "payments", method = RequestMethod.GET)
+	public ModelAndView getPayments()
+	{
+		List<PaymentsModel> paymentsList = paymentsService.getPayments();
+
+		ModelAndView modelAndView = new ModelAndView("dataList");
+		modelAndView.addObject("paymentsList", paymentsList);
+
+		return modelAndView;
+	}
 
 	// productlines
 
