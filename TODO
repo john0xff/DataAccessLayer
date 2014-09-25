@@ -1,0 +1,6 @@
+
+Constraints in persistence like below to related table to make possible to create tables not form sql file but from ORM layer
+sql usually depends by data base engine, ORM should provide possibility to change db without changing any db models and constraints
+
+@Entity
+@Table(name = "user_roles", catalog = "db_jv_crm", uniqueConstraints = @UniqueConstraint(columnNames = { "role", "username" }))
